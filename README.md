@@ -374,8 +374,20 @@ Given an input string `s` and a positive integer `n`, reverse every n characters
 
 ### Run-Length Decoding
 Given an input string `s`, decode it based on run-length encoding.  For example, `w4a3d1e1x6` is decoded to `wwwwaaadexxxxxx`
+												     
+<details>
+  <summary>Possible Solution</summary>
+  
+  ```python
+def rld(s):
+    if s == '':
+        return ''
+    return s[0] * int(s[1]) + rld(s[2:])
+  ```
+  
+</details>
 
-### Run-Length Encoding
+### Run-Length Encoding (No need recursion)
 Given an input string `s`, decode it based on run-length encoding.  For example, `wwwwaaadexxxxxx` is encoded to `w4a3d1e1x6`
 
 ### Caesar Cipher
