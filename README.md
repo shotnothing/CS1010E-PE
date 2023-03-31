@@ -103,7 +103,7 @@ def rev(s):
 	return s[1] + s[0] + rev(s[2:])
 ```
 In the `return`, note that `PROCESS CURRENT` takes the form of `s[1] + s[0]` which is an effective swapping of the order, and `NEXT` is `s[2:]`. The algorithm is effectively saying to chop the first two off, swap them and run the same thing on the rest of the string.
-```python
+```
 rev('abcdef') 
 = 'b' + 'a' + rev('cdef')
 = 'b' + 'a' + 'd' + 'c' + rev('ef')
