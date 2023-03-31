@@ -409,3 +409,20 @@ Write two mutually recursive functions, `is_even` and `is_odd`, that determine w
 | `is_odd(5)` | `True` |
 | `is_even(10)` | `True` |
 | `is_odd(11)` | `True` |
+
+<details>
+  <summary>Possible Solution</summary>
+  
+  ```python
+	def is_odd(n):
+	    if n == 0:
+		return False
+	    return is_even(n-1)
+
+	def is_even(n):
+	    if n == 0:
+		return True
+	    return is_odd(n-1)
+  ```
+  
+</details>
