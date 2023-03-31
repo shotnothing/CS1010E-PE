@@ -172,6 +172,40 @@ Note that `B` is always a positive integer or zero.
 | (3, 0)| 1 |
 | (0, 0)| 1 |
 
+<details>
+  <summary>Possible Solution</summary>
+  
+  ```python
+def successor(n):
+	return n + 1
+	
+def negate(n):
+	return -n
+	
+def add(a, b):
+    if b == 0:
+        return a
+    if b < 0:
+        return negate(add(successor(negate(a)), negate(successor(b))))
+    return add(successor(a), negate(successor(negate(b))))
+    
+def mul(a, b):
+    if b == 1:
+        return a
+    elif b == negate(1):
+        return negate(a)
+    if b < 0:
+        return negate( add(a, mul(a, negate(successor(b)))))
+    return add(a, mul(a, negate(successor(negate(b)))))
+    
+def pow(a, b):
+    if b == 0:
+        return 1
+    return mul(a,  pow(a, negate(successor(negate(b)))))
+  ```
+  
+</details>
+
 ### Fibonacci
 Given a positive integer $n$, find the $n$th term of the Fibonacci sequence i.e.
 $$ F_n = F_{n-1}+ F_{n-2}$$
