@@ -161,11 +161,12 @@ def negate(n):
 	return -n
 	
 def add(a, b):
+    # note that negate(successor(negate(x))) is -(-x+1) = x-1
     if b == 0:
         return a
     if b < 0:
-        return negate(add(successor(negate(a)), negate(successor(b))))
-    return add(successor(a), negate(successor(negate(b))))
+        return add(negate(successor(negate(a))), successor(b)) # add(a-1, b+1)
+    return add(successor(a), negate(successor(negate(b)))) # add(a+1, b-1)
   ```
   
 </details>
@@ -187,11 +188,12 @@ def negate(n):
 	return -n
 	
 def add(a, b):
+    # note that negate(successor(negate(x))) is -(-x+1) = x-1
     if b == 0:
         return a
     if b < 0:
-        return negate(add(successor(negate(a)), negate(successor(b))))
-    return add(successor(a), negate(successor(negate(b))))
+        return add(negate(successor(negate(a))), successor(b)) # add(a-1, b+1)
+    return add(successor(a), negate(successor(negate(b)))) # add(a+1, b-1)
     
 def mul(a, b):
     if b == 1:
@@ -199,8 +201,8 @@ def mul(a, b):
     elif b == negate(1):
         return negate(a)
     if b < 0:
-        return negate( add(a, mul(a, negate(successor(b)))))
-    return add(a, mul(a, negate(successor(negate(b)))))
+        return negate( add(a, mul(a, negate(successor(b))))) # -a - mul(a, -b-1))
+    return add(a, mul(a, negate(successor(negate(b))))) # a + mul(a, b-1)
   ```
   
 </details>
@@ -232,11 +234,12 @@ def negate(n):
 	return -n
 	
 def add(a, b):
+    # note that negate(successor(negate(x))) is -(-x+1) = x-1
     if b == 0:
         return a
     if b < 0:
-        return negate(add(successor(negate(a)), negate(successor(b))))
-    return add(successor(a), negate(successor(negate(b))))
+        return add(negate(successor(negate(a))), successor(b)) # add(a-1, b+1)
+    return add(successor(a), negate(successor(negate(b)))) # add(a+1, b-1)
     
 def mul(a, b):
     if b == 1:
@@ -244,13 +247,13 @@ def mul(a, b):
     elif b == negate(1):
         return negate(a)
     if b < 0:
-        return negate( add(a, mul(a, negate(successor(b)))))
-    return add(a, mul(a, negate(successor(negate(b)))))
+        return negate( add(a, mul(a, negate(successor(b))))) # -a - mul(a, -b-1))
+    return add(a, mul(a, negate(successor(negate(b))))) # a + mul(a, b-1)
     
 def pow(a, b):
     if b == 0:
         return 1
-    return mul(a,  pow(a, negate(successor(negate(b)))))
+    return mul(a,  pow(a, negate(successor(negate(b))))) # a * pow(a, b-1)
   ```
   
 </details>
