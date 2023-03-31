@@ -279,6 +279,7 @@ Given a positive integer $n$ and an integer $x$, create a function `isPower(x,n)
 | (16, 2)| True | $2^4=16$|
 | (81, -3) | True | $(-3)^4=81$|
 | (82, -3) | False| There is no $n$ where $(-3)^n=82$|
+| (100, 5) | False| There is no $n$ where $5^n=100$|
 	
 <details>
   <summary>Possible Solution</summary>
