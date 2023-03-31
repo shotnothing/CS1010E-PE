@@ -3,7 +3,7 @@
 **by Jing Wen**
 
 The anatomy of a recursion solution is simple, for 99% of problems it follows roughly this format:
-```
+```python
 def function_R(...):
 	BASE CASE
 	PROCESS CURRENT + function_R(NEXT) 
@@ -21,7 +21,7 @@ $$sum(1) = 1$$
 or anything that we know the value of (i.e. $sum(2)=3$, $sum(3)= 6$) but if the question says that $n$ can be any positive integer, then if your base case is more than 1, it will not be captured, thus we choose either 1 or 0.
 
 A Python implementation of this would be
-```
+```python
 def sum_R(n):
 	if n == 0:
 		return 0
@@ -32,7 +32,7 @@ In this case, our `BASE CASE` is $sum(0) = 0$ as discussed above, `PROCESS CURRE
 The structure of our return function is `PROCESS CURRENT + f(NEXT)` but it could very well be `f(NEXT) + PROCESS CURRENT` for this question because sum is commutative.
 
 If we were to modify our question and instead get the sum of squares, we have to make a modification to `PROCESS CURRENT` to square each number.
-```
+```python
 def sum_of_squares_R(n):
 	if n == 0:
 		return 0
@@ -43,7 +43,7 @@ The logic of summing everything still stays the same and used the same `BASE CAS
 **More  Complex `PROCESS CURRENT`**
 
 Power is also quite a simple `PROCESS CURRENT`, but you can do more complex things, for example to calculate the sum where only odd numbers are squared:
-```
+```python
 def sum_of_squares_R(n):
 	if n == 0:
 		return 0
@@ -61,7 +61,7 @@ however,
 Thus, the order in which things are added is important. Reversing the order they are added reverses the output. 
 
 Let us look at this function which takes in a string and returns the exact same string:
-```
+```python
 def f(s):
 	if len(s) == 0:
 		return ''
@@ -69,7 +69,7 @@ def f(s):
 ```
 
 Using the non-commutativity of string addition, by reversing the order of `PROCESS CURRENT` and `f(NEXT)`, we can reverse the string:
-```
+```python
 def f(s):
 	if len(s) == 0:
 		return ''
@@ -79,14 +79,14 @@ def f(s):
 **Other Operators**
 
 Until now, we have been using the arithmetic operator `+`. However, there is no reason we are restricted to this. We can use boolean operators:
- ```
+ ```python
 def no_a_in_string(s):
 	if len(s) == 0:
 		return True
 	return f(s[1:]) and s[0]!='a' 
 ```
 and even functions:
- ```
+ ```python
 def maximum(s):
 	if len(s) == 0:
 		return 0
@@ -96,7 +96,7 @@ There can also be multiple recursion terms in a single return, like Fibonacci wh
 
 **Slicing in `PROCESS CURRENT`**
 Many string questions make us use substrings  rather than just the first character, `s[0]`. An example is reversing pairs of numbers:
- ```
+ ```python
 def rev(s):
 	if len(s) <= 1:
 		return s
@@ -139,7 +139,7 @@ $$ \sum_{x=0}^{n}{x^2}$$
 ### Addition
 In this question, you are not allowed to use the numeric operators `+`, `-`, `*`, `/` or `**`.
 You are given the functions `successor` and `negate`:
-```
+```python
 def successor(n):
 	return n + 1
 	
@@ -294,7 +294,7 @@ def isPower(x,n):
     return False # can't find
   ```
 One-liner:
-```
+```python
 isPower = lambda x, n: x in [n**exp for exp in range(x)] # technically range(logn(x)) but x is always larger than logn(x)
 ```
   
