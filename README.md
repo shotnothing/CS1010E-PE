@@ -118,7 +118,7 @@ For each question, write an recursive and iterative version.
 (Hard) Write a one line version that does not use recursion (making use of list/string comprehension).
 ### Sum to N
 Given a integer $n$,
-$$ \sum_{i=0}^{n}{x}$$
+$$ \sum_{x=0}^{n}{x}$$
 
 | Test Case | Expected Result |
 |-|-|
@@ -128,12 +128,12 @@ $$ \sum_{i=0}^{n}{x}$$
 
 ### Sum of Squares to N
 Given a integer $n$,
-$$ \sum_{i=0}^{n}{x^2}$$
+$$ \sum_{x=0}^{n}{x^2}$$
 | Test Case | Expected Result |
 |-|-|
 | 100 | 338350 |
 | 9999 | 332833500 |
-| -100 | -338350 |
+| -100 | 338350 |
 
 ### Addition
 In this question, you are not allowed to use the numeric operators `+`, `-`, `*`, `/` or `**`.
