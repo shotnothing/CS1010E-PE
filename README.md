@@ -138,14 +138,17 @@ $$ \sum_{x=0}^{n}{x^2}$$
 
 ### Addition
 In this question, you are not allowed to use the numeric operators `+`, `-`, `*`, `/` or `**`.
-You are given a function `successor`:
+You are given the functions `successor` and `negate`:
 ```
 def successor(n):
 	return n + 1
+	
+def negate(n):
+	return -n
 ```
 Create a function `add` that adds two integers `A` and `B` together, i.e.
 $$ add(A, B) = A + B$$
-using `successor` and without using the aforementioned operators.
+using `successor`, `negate` and without using the aforementioned operators.
 
 ### Multiplication
 In this question, you are not allowed to use the numeric operators `+`, `-`, `*`, `/` or `**`.
