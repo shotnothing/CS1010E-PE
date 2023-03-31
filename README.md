@@ -1,3 +1,4 @@
+
 # Recursion and Iteration
 **by Jing Wen**
 
@@ -179,7 +180,6 @@ and
 |-|-|
 | 10| 55 |
 | 18| 2584 |
-| -100 | -5050 |
 
 ### Check Power
 Given a positive integer $n$ and an integer $x$, create a function `isPower(x,n)` that checks if `x` is a power of `n`.
@@ -409,4 +409,3 @@ Write two mutually recursive functions, `is_even` and `is_odd`, that determine w
 | `is_odd(5)` | `True` |
 | `is_even(10)` | `True` |
 | `is_odd(11)` | `True` |
-
