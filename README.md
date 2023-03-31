@@ -279,6 +279,21 @@ Given a positive integer $n$ and an integer $x$, create a function `isPower(x,n)
 | (16, 2)| True | $2^4=16$|
 | (81, -3) | True | $(-3)^4=81$|
 | (82, -3) | False| There is no $n$ where $(-3)^n=82$|
+	
+<details>
+  <summary>Possible Solution</summary>
+  
+  ```python
+def isPower(x,n):
+    i = 1 # n^0 = 1
+    while i < x: # upper bound is x as exponent +1 implies i is strictly increasing, so when i is more than x we can give up
+        i *= n # increase n's exponent by 1 i.e. multiply by n
+        if i == x: # if match, stop early and return true
+            return True
+    return False # can't find
+  ```
+  
+</details>
 
 ### Prime (No need recursion)
 Given a positive integer $n$, create a function `isPrime(x,n)` that checks if `n` is prime.
