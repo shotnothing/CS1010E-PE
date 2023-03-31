@@ -150,11 +150,60 @@ Create a function `add` that adds two integers `A` and `B` together, i.e.
 $$ add(A, B) = A + B$$
 using `successor`, `negate` and without using the aforementioned operators.
 
+<details>
+  <summary>Possible Solution</summary>
+  
+  ```python
+def successor(n):
+	return n + 1
+	
+def negate(n):
+	return -n
+	
+def add(a, b):
+    if b == 0:
+        return a
+    if b < 0:
+        return negate(add(successor(negate(a)), negate(successor(b))))
+    return add(successor(a), negate(successor(negate(b))))
+  ```
+  
+</details>
+
 ### Multiplication
 In this question, you are not allowed to use the numeric operators `+`, `-`, `*`, `/` or `**`.
 Similarly, u create a function `mul` that multiplies `A` and `B` together, i.e. 
 $$ mul(A, B) = AB$$
 using `add` and without using the aforementioned operators.
+
+<details>
+  <summary>Possible Solution</summary>
+  
+  ```python
+def successor(n):
+	return n + 1
+	
+def negate(n):
+	return -n
+	
+def add(a, b):
+    if b == 0:
+        return a
+    if b < 0:
+        return negate(add(successor(negate(a)), negate(successor(b))))
+    return add(successor(a), negate(successor(negate(b))))
+    
+def mul(a, b):
+    if b == 1:
+        return a
+    elif b == negate(1):
+        return negate(a)
+    if b < 0:
+        return negate( add(a, mul(a, negate(successor(b)))))
+    return add(a, mul(a, negate(successor(negate(b)))))
+  ```
+  
+</details>
 
 ### Power
 In this question, you are not allowed to use the numeric operators `+`, `-`, `*`, `/` or `**`.
