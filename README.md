@@ -285,8 +285,8 @@ Given a positive integer $n$ and an integer $x$, create a function `isPower(x,n)
   
   ```python
 def isPower(x,n):
-    i = 1 # n^0 = 1
-    while i < x: # upper bound is x as exponent +1 implies i is strictly increasing, so when i is more than x we can give up
+    i = 1 # n^0 = i = 1
+    while i < x: # upper bound is x as i is strictly increasing, so when i is more than x we can give up
         i *= n # increase n's exponent by 1 i.e. multiply by n
         if i == x: # if match, stop early and return true
             return True
