@@ -301,7 +301,7 @@ isPower = lambda x, n: x in [n**exp for exp in range(x)] # technically range(log
 </details>
 
 ### Prime (No need recursion)
-Given a positive integer $n$, create a function `isPrime(x,n)` that checks if `n` is prime.
+Given a positive integer $n$, create a function `isPrime(n)` that checks if `n` is prime.
 | Test Case | Expected Result |
 |-|-|
 | 1 | False |
@@ -310,6 +310,20 @@ Given a positive integer $n$, create a function `isPrime(x,n)` that checks if `n
 | 73 | True|
 | 7919 | True |
 | 7920 | False |
+	
+<details>
+  <summary>Possible Solution</summary>
+
+One-liner:
+```python
+# Naive method
+isPrime = lambda n : not any([n%i==0 for i in range(2, n//2+1)])
+
+# Sieve of Eratosthenes
+isPrime = lambda n : n not in {i*j for i in range(2,n) for j in range(2,n//i+1)}
+```
+  
+</details>
 
 ### Super Digit
 We define super digit of an integer  $x$ using the following rules:
