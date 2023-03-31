@@ -293,6 +293,10 @@ def isPower(x,n):
             return True
     return False # can't find
   ```
+One-liner:
+```
+isPower = lambda x, n: x in [n**exp for exp in range(x)] # technically range(logn(x)) but x is always larger than logn(x)
+```
   
 </details>
 
