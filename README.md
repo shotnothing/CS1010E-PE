@@ -89,7 +89,7 @@ and even functions:
  ```
 def maximum(s):
 	if len(s) == 0:
-		return '0'
+		return 0
 	return max(int(s[0]), f(s[1:]))
 ```
 There can also be multiple recursion terms in a single return, like Fibonacci which has a return like ```return fibonacci(n-1) + fibonacci(n-2)```
