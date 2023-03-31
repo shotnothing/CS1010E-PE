@@ -280,7 +280,7 @@ Given a positive integer $n$ and an integer $x$, create a function `isPower(x,n)
 | (81, -3) | True | $(-3)^4=81$|
 | (82, -3) | False| There is no $n$ where $(-3)^n=82$|
 
-### Prime
+### Prime (No need recursion)
 Given a positive integer $n$, create a function `isPrime(x,n)` that checks if `n` is prime.
 | Test Case | Expected Result |
 |-|-|
