@@ -390,6 +390,26 @@ def rld(s):
 ### Run-Length Encoding (No need recursion)
 Given an input string `s`, decode it based on run-length encoding.  For example, `wwwwaaadexxxxxx` is encoded to `w4a3d1e1x6`
 
+<details>
+  <summary>Possible Solution</summary>
+  
+  ```python
+def rle(s):
+    out = ''
+    cur = s[0]
+    count = 1
+    for c in s[1:]:
+        if c == cur:
+            count += 1
+        else:
+            out += cur + str(count)
+            cur = c
+            count = 1
+    return out + cur + str(count)
+  ```
+  
+</details>
+
 ### Caesar Cipher
 Implement a Caesar cipher to encode and decode a given input string `s` using a provided integer key `k`. The Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet using the key.
 
