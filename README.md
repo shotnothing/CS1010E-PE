@@ -150,6 +150,8 @@ Create a function `add` that adds two integers `A` and `B` together, i.e.
 $$ add(A, B) = A + B$$
 using `successor`, `negate` and without using the aforementioned operators.
 
+Hint: `negate(successor(negate(x)))` is $-(-x+1) = x-1$
+
 <details>
   <summary>Possible Solution</summary>
   
