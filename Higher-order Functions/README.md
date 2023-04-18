@@ -1,3 +1,6 @@
+# Higher-order Functions and Lambdas
+**by Jing Wen**
+
 ## Higher-order Functions
 A higher-order function is a function that takes one or more functions as arguments, returns a function as a result, or both. They allow you to create more generic, reusable, and composable code. 
 
