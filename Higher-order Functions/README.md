@@ -1,12 +1,95 @@
-# Higher-order Functions and Lambdas
+## Higher-order Functions
 **by Jing Wen**
 
-## Higher-order Functions
 A higher-order function is a function that takes one or more functions as arguments, returns a function as a result, or both. They allow you to create more generic, reusable, and composable code. 
 
 In Python, functions are first-class objects, which means you can pass them around like any other object, such as integers or strings.
 
-Some common higher-order functions in Python are `map()`, `filter()`, and `reduce()`:
+You can define your own higher-order function by passing a function as an argument:
+  ```python
+from time import time
+
+def time_it(f, x):
+    start_time = time()
+    ret = f(x)
+    print(f'Your function took {time()-start_time} to run!')
+    return ret
+
+f = sum
+x = [i for i in range(100000)]
+result = time_it(f, x)
+print(result)
+```
+
+---
+
+### Questions
+<details>
+  <summary> <b>Question 1</b> </summary>
+  
+  Given:
+  ```python
+  def f1(x):
+    return [x]
+  
+  def f2(f, y):
+    return f(3) * y
+  
+  def f3(x, y):
+    z = f1(y) + f2(f1, x)
+    if not f1(len(z)//10):
+      z = f2(list, f1(z))
+      return z
+    return f2(str, sum(z))
+  ```
+  which expressions are `True`:
+- [ ] f2(tuple, 4) == (3, 3, 3, 3, 3)
+- [ ] f2(max, 1) == 3
+- [ ] f3(2, 3) == '333333333'
+- [ ] f3(2, 3) == [3, 3, 3, 3, 3, 3, 3, 3, 3]
+- [ ] f1(f2(int, f1(f2(f1, 1)))) == [[[3], [3], [3]]]
+  
+  <details>
+    <summary>Question 1 Answer</summary>
+    
+  - [ ] f2(tuple, 4) == (3, 3, 3, 3, 3) 
+    ```diff
+    - error because tuple(3)
+    ```
+  - [ ] f2(max, 1) == 3
+    ```diff
+    - error because max(3)
+    ```
+  - [x] f3(2, 3) == '333333333'
+    ```diff
+    ! Note that len(f1(z//10)) always = 1 as f1 returns list of length 1, so if branch is never taken
+    + f3(2, 3)
+    + = f2(str, sum(z))
+    + = f2(str, sum(f1(y) + f2(f1, x)))
+    + = f2(str, sum(f1(3) + f2(f1, 2)))
+    + = f2(str, sum([3] + f2(f1, 2)))
+    + = f2(str, sum([3] + f1(3) * 2))
+    + = f2(str, sum([3] + [3] * 2))
+    + = f2(str, sum([3, 3, 3]))
+    + = f2(str, 9)
+    + = str(3) * 9
+    + = 333333333
+    ```
+  - [ ] f3(2, 3) == [3, 3, 3, 3, 3, 3, 3, 3, 3]
+    ```diff
+    - the return statement is the str one
+    ```
+  - [x] f1(f2(int, f1(f2(f1, 1)))) == [[[3], [3], [3]]]
+    
+  </details>
+  
+</details>
+
+---
+
+
+    
+Some common higher-order functions provided to you in Python are `map()`, `filter()`, and `reduce()`:
 
 - `map()`: Applies a given function to all items in an iterable (e.g., list or tuple) and returns a map object (which can be converted to a list or other iterable).
   Example:
@@ -43,22 +126,6 @@ Some common higher-order functions in Python are `map()`, `filter()`, and `reduc
   result = reduce(multiply, numbers)
   print(result)  # Output: 24
   ```
-  
-You can also define your own higher-order function by passing a function as an argument:
-  ```python
-from time import time
-
-def time_it(f, x):
-    start_time = time()
-    ret = f(x)
-    print(f'Your function took {time()-start_time} to run!')
-    return ret
-
-f = sum
-x = [i for i in range(100000)]
-result = time_it(f, x)
-print(result)
-```
 
 ## Lambdas
 In Python, lambda is a keyword used to create small, anonymous (unnamed) functions, also known as lambda functions. These functions can be used wherever function objects are required, such as when you want to pass a simple function as an argument to another function. 
