@@ -217,12 +217,10 @@ result = add(5, 3)
 print(result)  # Output: 8
 ```
 
-It is important to note that lambda functions are limited in their functionality compared to regular Python functions (defined using `def`). They are mainly used for simple operations where a full function definition would be unnecessarily verbose.
+Note that lambda functions are limited in their functionality compared to regular Python functions (defined using `def`). They are mainly used for simple operations where a full function definition would be unnecessarily verbose.
 
-```diff
-! Even though lambdas may seem named when you assign them to variables, they are still unnamed
-```
-Demonstration
+Even though lambdas may seem named when you assign them to variables, they are still unnamed.
+Demonstration:
 ```python
 sum2 = lambda x: sum(x)
 sum3 = sum
