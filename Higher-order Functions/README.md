@@ -1,7 +1,7 @@
 ## Higher-order Functions
 **by Jing Wen**
 
-A higher-order function is a function that takes one or more functions as arguments, returns a function as a result, or both. They allow you to create more generic, reusable, and composable code. 
+A higher-order function is a function that takes one or more functions as arguments, returns a function as a result, or both. They allow you to create more generic, reusable, and composable (modular code with no side effects) code. 
 
 In Python, functions are first-class objects, which means you can pass them around like any other object, such as integers or strings.
 
