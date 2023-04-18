@@ -316,7 +316,7 @@ result = 15
   
   Evaluate:
   ```python
-(lambda x, y, z: x(y) + z)(lambda a: a ** 2, 3, 4)
+(lambda x, y, z: x(y) + z)(lambda x: x ** 2, 3, 4)
   ```
   
    <details>
@@ -345,7 +345,7 @@ result = 15
   
   Evaluate:
   ```python
-(lambda p, q, r: p(q) * r)(lambda b: b - 1, 6, 2)
+(lambda p, q, r: p(q) * r)(lambda r: r - 1, 6, 2)
   ```
   
    <details>
@@ -374,7 +374,7 @@ So, the evaluated expression is `10`.
   
   Evaluate:
   ```python
-  (lambda a, b, c: a(b) * a(c))((lambda x: x * 3), 2, 4)
+  (lambda a, b, c: a(b) * a(c))((lambda a: a * 3), 2, 4)
   ```
   
    <details>
@@ -424,7 +424,7 @@ So, the evaluated expression is `10`.
   
   Evaluate:
   ```python
-  (lambda f, g, h, x: f(g(x), h(x)))(lambda x, y: x * y, lambda x: x + 2, lambda x: x ** 2, 3)
+  (lambda f, g, h, x: f(g(x), h(x)))(lambda f, g: f * g, lambda h: h + 2, lambda f: f ** 2, 3)
   ```
   
    <details>
@@ -453,7 +453,7 @@ So, the evaluated expression is `10`.
   
   Evaluate:
   ```python
-(lambda a, b, c, d: (a(b), c(d)))(lambda x: x // 2, 8, lambda y: y % 3, 11)
+(lambda a, b, c, d: (a(b), c(d)))(lambda a: a // 2, 8, lambda a: a % 3, 11)
   ```
   
    <details>
@@ -485,7 +485,7 @@ So, the evaluated expression is `10`.
   
   Evaluate:
   ```python
-  (lambda f, lst: list(map(f, lst)))(lambda x: x ** 2, [1, 2, 3, 4])
+  (lambda f, lst: list(map(f, lst)))(lambda f: f ** 2, [1, 2, 3, 4])
   ```
   
    <details>
@@ -565,7 +565,7 @@ So, the evaluated expression is `10`.
   
   Evaluate:
   ```python
-(lambda f, g: f(2, 3) + g(4))(lambda x, y: x * y, lambda z: z ** 2)
+(lambda x, y: x(2, 3) + y(4))(lambda x, y: x * y, lambda y: y ** 2)
   ```
   
    <details>
@@ -595,7 +595,7 @@ So, the evaluated expression is `10`.
   
   Evaluate:
   ```python
-  (lambda f, lst: f(lambda x: reduce(lambda a, b: a * b, x), lst))(
+  (lambda f, lst: f(lambda x: reduce(lambda x, y: x * y, x), lst))(
     lambda func, items: list(map(func, items)),
     [[1, 2], [3, 4], [5, 6]]
   )
@@ -616,4 +616,3 @@ So, the evaluated expression is `10`.
      
   </details>
 </details>
-
