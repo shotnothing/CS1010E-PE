@@ -563,22 +563,20 @@ So, the evaluated expression is `10`.
   
   Evaluate:
   ```python
-(lambda x, y: x(2, 3) + y(4))(lambda x, y: x * y, lambda y: y ** 2)
+sorted((lambda x: {(i,i%3) for i in range(x)})(10), key=lambda x: x[0] + 10*x[1])[-1]
   ```
   
    <details>
     <summary>Question 11 Answer</summary>
 
-  1. The outer lambda function has two arguments `f` and `g`. It applies `f` to `2` and `3`, and `g` to `4`, then adds the results.
-  2. `f` is a lambda function: `(lambda x, y: x * y)`. This function takes two arguments `x` and `y` and returns their product.
-  3. `g` is a lambda function: `(lambda z: z ** 2)`. This function takes a single argument `z` and returns its square.
-  4. Applying `f` to `2` and `3` gives us `f(2, 3)`, which is `2 * 3`.
-  5. The result is `6`.
-  6. Applying `g` to `4` gives us `g(4)`, which is `4 ** 2`.
-  7. The result is `16`.
-  8. The sum of the results is `6 + 16`, which is `22`.
-
-  So, the evaluated expression is `22`.
+  1. The outer function is sorted. It takes an iterable and an optional key function as arguments and returns a sorted list of the iterable's elements, based on the key function.
+  2. The lambda function (lambda x: {(i, i % 3) for i in range(x)}) takes one argument x and returns a set of tuples, where each tuple contains an element from the range of x and the element modulo 3.
+  3. The lambda function is applied to the argument 10, resulting in a set of tuples: {(0, 0), (1, 1), (2, 2), (3, 0), (4, 1), (5, 2), (6, 0), (7, 1), (8, 2), (9, 0)}.
+  4. The key function for the sorted function is a lambda function (lambda x: x[0] + 10 * x[1]). It takes a tuple x and returns a value calculated as the sum of the first element of the tuple and ten times the second element of the tuple.
+  5. Applying the sorted function to the set of tuples and the key function results in a sorted list of tuples: [(0, 0), (3, 0), (6, 0), (9, 0), (1, 1), (4, 1), (7, 1), (2, 2), (5, 2), (8, 2)].
+  6. The expression [-1] retrieves the last element of the sorted list of tuples.
+     
+  So, the evaluated expression is (8, 2)
      
   </details>
 </details>
