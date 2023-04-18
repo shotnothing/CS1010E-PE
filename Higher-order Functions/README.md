@@ -711,7 +711,7 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
   Evaluate:
   ```python
 def combinator(y):
-  return (lambda x: lambda y: x(y))(lambda x:y)
+    return (lambda x: lambda y: x(y))(lambda x:y)
 combinator(lambda x:x*10)(11)(12)
   ```
   
