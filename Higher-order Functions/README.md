@@ -658,15 +658,15 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
    <details>
     <summary>Question 14 Answer</summary>
      
-    1. The outer lambda function has three arguments x, y, and z. It applies x to y and x to z and returns the sum of the results.
-    2. x is a lambda function: (lambda x: x * 2). This function takes one argument x and returns the product of x and 2.
-    3. y is 4.
-    4. z is 5.
-    5. Applying x to y and z gives us: x(4) + x(5).
-    6. The lambda function (lambda x: x * 2) is applied to the arguments 4 and 5, resulting in 4 * 2 and 5 * 2, which are 8 and 10 respectively.
-    7. The final result is the sum of the two results: 8 + 10.
+  1. The outer lambda function has three arguments x, y, and z. It applies x to y and x to z and returns the sum of the results.
+  2. x is a lambda function: (lambda x: x * 2). This function takes one argument x and returns the product of x and 2.
+  3. y is 4.
+  4. z is 5.
+  5. Applying x to y and z gives us: x(4) + x(5).
+  6. The lambda function (lambda x: x * 2) is applied to the arguments 4 and 5, resulting in 4 * 2 and 5 * 2, which are 8 and 10 respectively.
+  7. The final result is the sum of the two results: 8 + 10.
 
-    So, the evaluated expression is 18.
+  So, the evaluated expression is 18.
    ...
      
   </details>
