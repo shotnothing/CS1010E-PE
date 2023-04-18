@@ -699,7 +699,7 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
   So, the evaluated expression is 4.
 
 </details>
-
+</details>
 
 
 
