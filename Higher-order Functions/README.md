@@ -1,0 +1,143 @@
+## Higher-order Functions
+A higher-order function is a function that takes one or more functions as arguments, returns a function as a result, or both. They allow you to create more generic, reusable, and composable code. 
+
+In Python, functions are first-class objects, which means you can pass them around like any other object, such as integers or strings.
+
+Some common higher-order functions in Python are `map()`, `filter()`, and `reduce()`:
+
+- `map()`: Applies a given function to all items in an iterable (e.g., list or tuple) and returns a map object (which can be converted to a list or other iterable).
+  Example:
+  
+  ```python
+  def square(x):
+      return x**2
+
+  numbers = [1, 2, 3, 4]
+  result = map(square, numbers)
+  print(list(result))  # Output: [1, 4, 9, 16]
+  ```
+  
+- `filter()`: Filters the items in an iterable based on a function that returns a boolean (True or False), called a predicate. The function is applied to each item, and the ones that return True are retained.
+
+  Example:
+  ```python
+  def is_even(x):
+      return x % 2 == 0
+
+  numbers = [1, 2, 3, 4]
+  result = filter(is_even, numbers)
+  print(list(result))  # Output: [2, 4]
+  ```
+  
+- `reduce()`: Applies a function with two arguments cumulatively to the items of an iterable, reducing the iterable to a single value. The reduce() function is found in the `functools` module (**not** imported by default in python).
+    ```python
+  from functools import reduce # important
+
+  def multiply(x, y):
+      return x * y
+
+  numbers = [1, 2, 3, 4]
+  result = reduce(multiply, numbers)
+  print(result)  # Output: 24
+  ```
+  
+You can also define your own higher-order function by passing a function as an argument:
+  ```python
+from time import time
+
+def time_it(f, x):
+    start_time = time()
+    ret = f(x)
+    print(f'Your function took {time()-start_time} to run!')
+    return ret
+
+f = sum
+x = [i for i in range(100000)]
+result = time_it(f, x)
+print(result)
+```
+
+## Lambdas
+In Python, lambda is a keyword used to create small, anonymous (unnamed) functions, also known as lambda functions. These functions can be used wherever function objects are required, such as when you want to pass a simple function as an argument to another function. 
+
+Lambda functions are limited to a single expression and cannot contain statements or include complex logic. You can use lambda functions as arguments for higher-order functions when you don't want to define a separate, full function.
+
+The general syntax for a lambda function is:
+
+```python
+lambda arguments: expression
+```
+
+which is similar to
+
+```python
+def <unnamed>(arguments):
+  return expression
+```
+
+For example:
+```python
+# Define a lambda function that takes two arguments and returns their sum
+add = lambda x, y: x + y
+
+# Use the lambda function
+result = add(5, 3)
+print(result)  # Output: 8
+```
+
+It is important to note that lambda functions are limited in their functionality compared to regular Python functions (defined using `def`). They are mainly used for simple operations where a full function definition would be unnecessarily verbose.
+
+You can use lambdas with higher-order functions like `map()`, `filter()`, and `reduce()`:
+
+```python
+numbers = [1, 2, 3, 4]
+result = map(lambda x: x**2, numbers)
+print(list(result))  # Output: [1, 4, 9, 16]
+```
+
+```python
+numbers = [1, 2, 3, 4]
+result = filter(lambda x: x % 2 == 0, numbers)
+print(list(result))  # Output: [2, 4]
+```
+
+```python
+from functools import reduce
+
+numbers = [1, 2, 3, 4]
+result = reduce(lambda x, y: x * y, numbers)
+print(result)  # Output: 24
+```
+
+## Nested Lambdas
+Nested lambdas refer to the use of one or more lambda functions within another lambda function. This is useful when you need to create functions that either take other functions as arguments or return functions as their result.
+
+```python
+# Define a lambda function that returns another lambda function
+multiply_by = lambda x: (lambda y: x * y)
+
+# Create a lambda function that multiplies its argument by 5
+times_five = multiply_by(5)
+
+# Use the created lambda function
+result = times_five(3)
+print(result)  # Output: 15
+```
+
+The breakdown of this code is as follows:
+
+```python
+times_five = multiply_by(5)
+times_five = (lambda x: (lambda y: x * y))(5)
+times_five = lambda y: 5 * y
+
+result = times_five(3)
+result = (lambda y: 5 * y)(3)
+result = 5 * 3
+result = 15
+```
+  
+  
+  
+  
+  
