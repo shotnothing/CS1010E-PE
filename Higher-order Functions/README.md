@@ -631,14 +631,14 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
    <details>
     <summary>Question 13 Answer</summary>
 
-    1. The outer function is tuple. It takes an iterable as an argument and returns a tuple containing the elements of the iterable.
-    2. The map function is applied to a lambda function and a tuple of tuples. The lambda function takes a single tuple argument and returns the sum of the first and second elements of the tuple. The tuple of tuples is ((1, 2), (3, 4)).
-    3. The lambda function is (lambda x: x[0] + x[1]). It takes one tuple argument x and returns the sum of the first element x[0] and the second element x[1].
-    4. Applying the map function to the lambda function and the tuple of tuples results in an iterable with the sum of the elements in each tuple: [1 + 2, 3 + 4].
-    5. The iterable created by the map function is [3, 7].
-    6. The tuple function takes the iterable [3, 7] and returns a tuple containing the elements of the iterable.
+  1. The outer function is tuple. It takes an iterable as an argument and returns a tuple containing the elements of the iterable.
+  2. The map function is applied to a lambda function and a tuple of tuples. The lambda function takes a single tuple argument and returns the sum of the first and second elements of the tuple. The tuple of tuples is ((1, 2), (3, 4)).
+  3. The lambda function is (lambda x: x[0] + x[1]). It takes one tuple argument x and returns the sum of the first element x[0] and the second element x[1].
+  4. Applying the map function to the lambda function and the tuple of tuples results in an iterable with the sum of the elements in each tuple: [1 + 2, 3 + 4].
+  5. The iterable created by the map function is [3, 7].
+  6. The tuple function takes the iterable [3, 7] and returns a tuple containing the elements of the iterable.
 
-    So, the evaluated expression is (3, 7)
+  So, the evaluated expression is (3, 7)
      
   </details>
 </details>
@@ -658,15 +658,15 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
    <details>
     <summary>Question 14 Answer</summary>
      
-      1. The outer lambda function has three arguments x, y, and z. It applies x to y and x to z and returns the sum of the results.
-      2. x is a lambda function: (lambda x: x * 2). This function takes one argument x and returns the product of x and 2.
-      3. y is 4.
-      4. z is 5.
-      5. Applying x to y and z gives us: x(4) + x(5).
-      6. The lambda function (lambda x: x * 2) is applied to the arguments 4 and 5, resulting in 4 * 2 and 5 * 2, which are 8 and 10 respectively.
-      7. The final result is the sum of the two results: 8 + 10.
-     
-      So, the evaluated expression is 18.
+    1. The outer lambda function has three arguments x, y, and z. It applies x to y and x to z and returns the sum of the results.
+    2. x is a lambda function: (lambda x: x * 2). This function takes one argument x and returns the product of x and 2.
+    3. y is 4.
+    4. z is 5.
+    5. Applying x to y and z gives us: x(4) + x(5).
+    6. The lambda function (lambda x: x * 2) is applied to the arguments 4 and 5, resulting in 4 * 2 and 5 * 2, which are 8 and 10 respectively.
+    7. The final result is the sum of the two results: 8 + 10.
+
+    So, the evaluated expression is 18.
    ...
      
   </details>
@@ -688,15 +688,15 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
 <details>
   <summary>Question 12 Answer</summary>
   
-    1. The outer lambda function has one argument x. It applies an inner lambda function to another lambda function and the argument x.
-    2. The inner lambda function is (lambda x : x). This function takes one argument x and returns it as-is.
-    3. The lambda function inside the inner lambda function is (lambda x: x + x). This function takes a single argument x and returns the sum of x and x.
-    4. x is 2.
-    5. Applying the inner lambda function to the (lambda x: x + x) function and x=2 gives us: (lambda x: x)(4).
-    6. The inner lambda function, (lambda x: x), now takes the argument 4 and simply returns it.
-    7. The final result is 4.
-  
-    So, the evaluated expression is 4.
+  1. The outer lambda function has one argument x. It applies an inner lambda function to another lambda function and the argument x.
+  2. The inner lambda function is (lambda x : x). This function takes one argument x and returns it as-is.
+  3. The lambda function inside the inner lambda function is (lambda x: x + x). This function takes a single argument x and returns the sum of x and x.
+  4. x is 2.
+  5. Applying the inner lambda function to the (lambda x: x + x) function and x=2 gives us: (lambda x: x)(4).
+  6. The inner lambda function, (lambda x: x), now takes the argument 4 and simply returns it.
+  7. The final result is 4.
+
+  So, the evaluated expression is 4.
 
 </details>
 
