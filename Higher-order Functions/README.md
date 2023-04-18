@@ -26,6 +26,41 @@ print(result)
 ### Questions
 
 <details>
+  <summary> <b>Question 1</b> </summary>
+  
+  Fix my code!
+  
+  ```python
+def sum_until(n):
+    """Returns a function that sums the first n elements of a given list.
+
+    Arguments:
+        n (int): The number of elements to include in the sum.
+
+    Returns:
+        function: A function that takes a list as input and returns the sum
+                  of the first n+1 elements in the list.
+    """
+    def sum_all(m)
+        return ...
+    return ...
+  ```
+  
+   <details>
+    <summary>Question 1 Answer</summary>
+     
+   ```python
+def sum_until(n):
+    def sum_all(m)
+        return sum(m[:n])
+    return sum_all
+  ```
+     
+  </details>
+
+</details>
+
+<details>
   <summary> <b>Question 2</b> </summary>
   
   ```python
