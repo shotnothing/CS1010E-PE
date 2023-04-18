@@ -39,7 +39,7 @@ def sum_until(n):
 
     Returns:
         function: A function that takes a list as input and returns the sum
-                  of the first n+1 elements in the list.
+                  of the first n elements in the list.
     """
     def sum_all(m)
         return ...
