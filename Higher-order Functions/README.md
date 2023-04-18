@@ -85,6 +85,32 @@ print(result)
   
 </details>
 
+<details>
+  <summary> <b>Question 2</b> </summary>
+  
+  ```python
+def a(b, y):
+    return y==0 or not b(a, y-1)
+  
+def x(y, a):
+    return a==0 or not y(x, a-1)
+  ```
+which expressions are `True`:
+- [ ] a(x, 2)
+- [ ] x(a, 2)
+- [ ] a(x, 3)
+- [ ] x(a, 3)
+  
+   <details>
+    <summary>Question 2 Answer</summary>
+- [x] a(x, 2)
+- [x] x(a, 2)
+- [ ] a(x, 3)
+- [ ] x(a, 3)
+  </details>
+
+</details>
+
 ---
 
 
