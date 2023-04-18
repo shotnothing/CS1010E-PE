@@ -283,6 +283,92 @@ result = 15
 
 ### Questions
 
+ <details>
+  <summary> <b>Question 1</b> </summary>
+  
+  Evaluate:
+  ```python
+(lambda a, b, c: (a * b) + c)(3, 4, 5)
+  ```
+  
+   <details>
+    <summary>Question 1 Answer</summary>
+  The given expression can be evaluated step-by-step:
+
+  1. The outer lambda function has three arguments `a`, `b`, and `c`. It calculates the product of `a` and `b`, then adds `c` to the result.
+  2. `a` is `3`.
+  3. `b` is `4`.
+  4. `c` is `5`.
+  5. The lambda function calculates the product of `a` and `b`, which is `3 * 4`.
+  6. The result is `12`.
+  7. The lambda function adds `c` to the result, which is `12 + 5`.
+  8. The final result is `17`.
+
+  So, the evaluated expression is `17`.
+     
+  </details>
+</details>
+
+
+
+ <details>
+  <summary> <b>Question 2</b> </summary>
+  
+  Evaluate:
+  ```python
+(lambda x, y, z: x(y) + z)(lambda a: a ** 2, 3, 4)
+  ```
+  
+   <details>
+    <summary>Question 2 Answer</summary>
+  The given expression can be evaluated step-by-step:
+
+  1. The outer lambda function has three arguments `x`, `y`, and `z`. It applies `x` to `y` and then adds `z` to the result.
+  2. `x` is a lambda function: `(lambda a: a ** 2)`. This function takes a single argument `a` and returns its square.
+  3. `y` is `3`.
+  4. `z` is `4`.
+  5. The lambda function applies `x` to `y`, which is `x(3)`.
+  6. The result is `3 ** 2`, which is `9`.
+  7. The lambda function adds `z` to the result, which is `9 + 4`.
+  8. The final result is `13`.
+
+  So, the evaluated expression is `13`.
+     
+  </details>
+</details>
+
+
+
+
+ <details>
+  <summary> <b>Question 3</b> </summary>
+  
+  Evaluate:
+  ```python
+(lambda p, q, r: p(q) * r)(lambda b: b - 1, 6, 2)
+  ```
+  
+   <details>
+    <summary>Question 3 Answer</summary>
+The given expression can be evaluated step-by-step:
+
+1. The outer lambda function has three arguments `p`, `q`, and `r`. It applies `p` to `q` and then multiplies the result by `r`.
+2. `p` is a lambda function: `(lambda b: b - 1)`. This function takes a single argument `b` and returns the value of `b` decremented by `1`.
+3. `q` is `6`.
+4. `r` is `2`.
+5. The lambda function applies `p` to `q`, which is `p(6)`.
+6. The result is `6 - 1`, which is `5`.
+7. The lambda function multiplies the result by `r`, which is `5 * 2`.
+8. The final result is `10`.
+
+So, the evaluated expression is `10`.
+     
+  </details>
+</details>
+
+
+
+
 <details>
   <summary> <b>Question 4</b> </summary>
   
