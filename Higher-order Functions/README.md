@@ -279,7 +279,255 @@ result = 5 * 3
 result = 15
 ```
   
+---
+
+### Questions
+
+<details>
+  <summary> <b>Question 4</b> </summary>
+  
+  Evaluate:
+  ```python
+  (lambda a, b, c: a(b) * a(c))((lambda x: x * 3), 2, 4)
+  ```
+  
+   <details>
+    <summary>Question 4 Answer</summary>
+     
+  1. The outer lambda function has three arguments `a`, `b`, and `c`. It applies `a` to `b` and `c` and then multiplies the results.
+  2. `a` is another lambda function: `(lambda x: x * 3)`. This function takes a single argument `x` and returns its triple.
+  3. `b` is `2` and `c` is `4`.
+  4. Applying `a` to `b` and `c` gives us `a(2)` and `a(4)`, which are `2 * 3` and `4 * 3`, respectively.
+  5. The result is `6 * 12`, which is `72`.
+
+  So, the evaluated expression is `72`.
+     
+  </details>
+
+</details>
+
+ <details>
+  <summary> <b>Question 5</b> </summary>
+  
+  Evaluate:
+  ```python
+  (lambda x, y: x(y))(lambda p: p ** 2, 3)
+  ```
+  
+   <details>
+    <summary>Question 5 Answer</summary>
+     
+  1. The outer lambda function has two arguments `x` and `y`. It applies `x` to `y`.
+  2. `x` is another lambda function: `(lambda p: p ** 2)`. This function takes a single argument `p` and returns the square of `p`.
+  3. `y` is `3`.
+  4. Applying `x` to `y` gives us `x(3)`, which is `3 ** 2`.
+  5. The result is `9`.
+
+  So, the evaluated expression is `9`.
+     
+  </details>
+
+</details>
+  
+ </details>
+
+
+
+ <details>
+  <summary> <b>Question 6</b> </summary>
+  
+  Evaluate:
+  ```python
+  (lambda f, g, h, x: f(g(x), h(x)))(lambda x, y: x * y, lambda x: x + 2, lambda x: x ** 2, 3)
+  ```
+  
+   <details>
+    <summary>Question 6 Answer</summary>
+
+  1. The outer lambda function has four arguments `f`, `g`, `h`, and `x`. It applies `g` and `h` to `x` and then applies `f` to the results of those applications.
+  2. `f` is a lambda function: `(lambda x, y: x * y)`. This function takes two arguments `x` and `y` and returns their product.
+  3. `g` is a lambda function: `(lambda x: x + 2)`. This function takes a single argument `x` and returns `x` plus 2.
+  4. `h` is a lambda function: `(lambda x: x ** 2)`. This function takes a single argument `x` and returns the square of `x`.
+  5. `x` is `3`.
+  6. Applying `g` and `h` to `x` gives us `g(3)` and `h(3)`, which are `3 + 2` and `3 ** 2`, respectively.
+  7. The result is `5` and `9`.
+  8. Applying `f` to the results of `g(3)` and `h(3)` gives us `f(5, 9)`, which is `5 * 9`.
+  9. The result is `45`.
+
+  So, the evaluated expression is `45`.
+     
+  </details>
+</details>
   
   
   
   
+ <details>
+  <summary> <b>Question 7</b> </summary>
+  
+  Evaluate:
+  ```python
+(lambda a, b, c, d: (a(b), c(d)))(lambda x: x // 2, 8, lambda y: y % 3, 11)
+  ```
+  
+   <details>
+    <summary>Question 7 Answer</summary>
+
+  1. The outer lambda function has four arguments `a`, `b`, `c`, and `d`. It applies `a` to `b` and `c` to `d`, and returns the results as a tuple.
+  2. `a` is a lambda function: `(lambda x: x // 2)`. This function takes a single argument `x` and returns the integer division of `x` by 2.
+  3. `b` is `8`.
+  4. `c` is a lambda function: `(lambda y: y % 3)`. This function takes a single argument `y` and returns the remainder of `y` divided by 3.
+  5. `d` is `11`.
+  6. Applying `a` to `b` gives us `a(8)`, which is `8 // 2`.
+  7. The result is `4`.
+  8. Applying `c` to `d` gives us `c(11)`, which is `11 % 3`.
+  9. The result is `2`.
+  10. The tuple (4, 2) is returned.
+     
+  So, the evaluated expression is `(4, 2)`.
+     
+  </details>
+</details>
+
+
+
+
+
+
+ <details>
+  <summary> <b>Question 8</b> </summary>
+  
+  Evaluate:
+  ```python
+  (lambda f, lst: list(map(f, lst)))(lambda x: x ** 2, [1, 2, 3, 4])
+  ```
+  
+   <details>
+    <summary>Question 8 Answer</summary>
+
+
+  1. The outer lambda function has two arguments `f` and `lst`. It applies `f` to each element of `lst` using the `map` function and returns the result as a list.
+  2. `f` is a lambda function: `(lambda x: x ** 2)`. This function takes a single argument `x` and returns the square of `x`.
+  3. `lst` is `[1, 2, 3, 4]`.
+  4. Applying `map` to `f` and `lst` gives us a new iterable with the squares of the elements in `lst`.
+  5. The result is `[1, 4, 9, 16]`.
+
+  So, the evaluated expression is `[1, 4, 9, 16]`.
+     
+  </details>
+</details>
+
+
+
+ <details>
+  <summary> <b>Question 9</b> </summary>
+  
+  Evaluate:
+  ```python
+  (lambda f, lst: list(filter(f, lst)))(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 6])
+  ```
+  
+   <details>
+    <summary>Question 9 Answer</summary>
+     
+  The given expression can be evaluated step-by-step:
+
+  1. The outer lambda function has two arguments `f` and `lst`. It filters `lst` using the `filter` function with `f` as the filtering function and returns the result as a list.
+  2. `f` is a lambda function: `(lambda x: x % 2 == 0)`. This function takes a single argument `x` and returns `True` if `x` is even and `False` otherwise.
+  3. `lst` is `[1, 2, 3, 4, 5, 6]`.
+  4. Applying `filter` to `f` and `lst` gives us a new iterable with only the even elements of `lst`.
+  5. The result is `[2, 4, 6]`.
+
+  So, the evaluated expression is `[2, 4, 6]`.
+     
+  </details>
+</details>
+
+
+
+
+ <details>
+  <summary> <b>Question 10</b> </summary>
+  
+  Evaluate:
+  ```python
+  (lambda f, lst: f(lambda x, y: x * y, lst))(lambda func, items: reduce(func, items), [1, 2, 3, 4])
+  ```
+  
+   <details>
+    <summary>Question 10 Answer</summary>
+
+  The given expression can be evaluated step-by-step:
+
+  1. The outer lambda function has two arguments `f` and `lst`. It applies `f` to a lambda function and `lst`.
+  2. `f` is a lambda function: `(lambda func, items: reduce(func, items))`. This function takes two arguments `func` and `items` and reduces `items` using the `reduce` function with `func` as the reducing function.
+  3. The lambda function `(lambda x, y: x * y)` is a function that takes two arguments `x` and `y` and returns their product.
+  4. `lst` is `[1, 2, 3, 4]`.
+  5. Applying `f` to the lambda function and `lst` gives us the result of reducing `lst` by multiplying its elements: `reduce(lambda x, y: x * y, [1, 2, 3, 4])`.
+  6. The result is `1 * 2 * 3 * 4`, which is `24`.
+
+  So, the evaluated expression is `24`.
+     
+  </details>
+</details>
+
+
+
+
+ <details>
+  <summary> <b>Question 11</b> </summary>
+  
+  Evaluate:
+  ```python
+(lambda f, g: f(2, 3) + g(4))(lambda x, y: x * y, lambda z: z ** 2)
+  ```
+  
+   <details>
+    <summary>Question 11 Answer</summary>
+
+  1. The outer lambda function has two arguments `f` and `g`. It applies `f` to `2` and `3`, and `g` to `4`, then adds the results.
+  2. `f` is a lambda function: `(lambda x, y: x * y)`. This function takes two arguments `x` and `y` and returns their product.
+  3. `g` is a lambda function: `(lambda z: z ** 2)`. This function takes a single argument `z` and returns its square.
+  4. Applying `f` to `2` and `3` gives us `f(2, 3)`, which is `2 * 3`.
+  5. The result is `6`.
+  6. Applying `g` to `4` gives us `g(4)`, which is `4 ** 2`.
+  7. The result is `16`.
+  8. The sum of the results is `6 + 16`, which is `22`.
+
+  So, the evaluated expression is `22`.
+     
+  </details>
+</details>
+
+
+
+
+
+
+ <details>
+  <summary> <b>Question 12</b> </summary>
+  
+  Evaluate:
+  ```python
+  (lambda f, lst: f(lambda x: reduce(lambda a, b: a * b, x), lst))(
+    lambda func, items: list(map(func, items)),
+    [[1, 2], [3, 4], [5, 6]]
+  )
+  ```
+  
+   <details>
+    <summary>Question 12 Answer</summary>
+
+  1. The outer lambda function has two arguments `f` and `lst`. It applies `f` to a lambda function and `lst`.
+  2. `f` is a lambda function: `(lambda func, items: list(map(func, items)))`. This function takes two arguments `func` and `items` and applies `func` to each element of `items` using the `map` function, returning the result as a list.
+  3. The lambda function inside `f` is `(lambda x: reduce(lambda a, b: a * b, x))`. This function takes a single argument `x` and reduces it using the `reduce` function with a lambda function that multiplies its arguments.
+  4. `lst` is `[[1, 2], [3, 4], [5, 6]]`.
+  5. Applying `f` to the lambda function and `lst` gives us a list where the lambda function is applied to each element of `lst`: `list(map(lambda x: reduce(lambda a, b: a * b, x), lst))`.
+  6. The lambda function applies the `reduce` function to each element of `lst`. This results in a list of products: `[1 * 2, 3 * 4, 5 * 6]`.
+  7. The final result is `[2, 12, 30]`.
+
+  So, the evaluated expression is `[2, 12, 30]`.
+     
+  </details>
+</details>
+
