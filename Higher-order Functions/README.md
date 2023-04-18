@@ -21,6 +21,44 @@ result = time_it(f, x)
 print(result)
 ```
 
+Some common higher-order functions provided to you in Python are `map()`, `filter()`, and `reduce()`:
+
+- `map()`: Applies a given function to all items in an iterable (e.g., list or tuple) and returns a map object (which can be converted to a list or other iterable).
+  Example:
+  
+  ```python
+  def square(x):
+      return x**2
+
+  numbers = [1, 2, 3, 4]
+  result = map(square, numbers)
+  print(list(result))  # Output: [1, 4, 9, 16]
+  ```
+  
+- `filter()`: Filters the items in an iterable based on a function that returns a boolean (True or False), called a predicate. The function is applied to each item, and the ones that return True are retained.
+
+  Example:
+  ```python
+  def is_even(x):
+      return x % 2 == 0
+
+  numbers = [1, 2, 3, 4]
+  result = filter(is_even, numbers)
+  print(list(result))  # Output: [2, 4]
+  ```
+  
+- `reduce()`: Applies a function with two arguments cumulatively to the items of an iterable, reducing the iterable to a single value. The reduce() function is found in the `functools` module (**not** imported by default in python).
+    ```python
+  from functools import reduce # important
+
+  def multiply(x, y):
+      return x * y
+
+  numbers = [1, 2, 3, 4]
+  result = reduce(multiply, numbers)
+  print(result)  # Output: 24
+  ```
+  
 ---
 
 ### Questions
@@ -150,46 +188,6 @@ which expressions are `True`:
 </details>
 
 ---
-
-
-    
-Some common higher-order functions provided to you in Python are `map()`, `filter()`, and `reduce()`:
-
-- `map()`: Applies a given function to all items in an iterable (e.g., list or tuple) and returns a map object (which can be converted to a list or other iterable).
-  Example:
-  
-  ```python
-  def square(x):
-      return x**2
-
-  numbers = [1, 2, 3, 4]
-  result = map(square, numbers)
-  print(list(result))  # Output: [1, 4, 9, 16]
-  ```
-  
-- `filter()`: Filters the items in an iterable based on a function that returns a boolean (True or False), called a predicate. The function is applied to each item, and the ones that return True are retained.
-
-  Example:
-  ```python
-  def is_even(x):
-      return x % 2 == 0
-
-  numbers = [1, 2, 3, 4]
-  result = filter(is_even, numbers)
-  print(list(result))  # Output: [2, 4]
-  ```
-  
-- `reduce()`: Applies a function with two arguments cumulatively to the items of an iterable, reducing the iterable to a single value. The reduce() function is found in the `functools` module (**not** imported by default in python).
-    ```python
-  from functools import reduce # important
-
-  def multiply(x, y):
-      return x * y
-
-  numbers = [1, 2, 3, 4]
-  result = reduce(multiply, numbers)
-  print(result)  # Output: 24
-  ```
 
 ## Lambdas
 In Python, lambda is a keyword used to create small, anonymous (unnamed) functions, also known as lambda functions. These functions can be used wherever function objects are required, such as when you want to pass a simple function as an argument to another function. 
