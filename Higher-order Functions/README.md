@@ -43,10 +43,12 @@ which expressions are `True`:
   
    <details>
     <summary>Question 2 Answer</summary>
+     
   - [x] a(x, 2)
   - [x] x(a, 2)
   - [ ] a(x, 3)
   - [ ] x(a, 3)
+     
   </details>
 
 </details>
