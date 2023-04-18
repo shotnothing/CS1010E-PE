@@ -397,19 +397,24 @@ So, the evaluated expression is `10`.
   
   Evaluate:
   ```python
-  (lambda x, y: x(y))(lambda p: p ** 2, 3)
+(lambda a, b, c, d: (a(b), c(d)))(lambda a: a // 2, 8, lambda a: a % 3, 11)
   ```
   
    <details>
     <summary>Question 5 Answer</summary>
      
-  1. The outer lambda function has two arguments `x` and `y`. It applies `x` to `y`.
-  2. `x` is another lambda function: `(lambda p: p ** 2)`. This function takes a single argument `p` and returns the square of `p`.
-  3. `y` is `3`.
-  4. Applying `x` to `y` gives us `x(3)`, which is `3 ** 2`.
-  5. The result is `9`.
-
-  So, the evaluated expression is `9`.
+  1. The outer lambda function has four arguments `a`, `b`, `c`, and `d`. It applies `a` to `b` and `c` to `d`, and returns the results as a tuple.
+  2. `a` is a lambda function: `(lambda x: x // 2)`. This function takes a single argument `x` and returns the integer division of `x` by 2.
+  3. `b` is `8`.
+  4. `c` is a lambda function: `(lambda y: y % 3)`. This function takes a single argument `y` and returns the remainder of `y` divided by 3.
+  5. `d` is `11`.
+  6. Applying `a` to `b` gives us `a(8)`, which is `8 // 2`.
+  7. The result is `4`.
+  8. Applying `c` to `d` gives us `c(11)`, which is `11 % 3`.
+  9. The result is `2`.
+  10. The tuple (4, 2) is returned.
+     
+  So, the evaluated expression is `(4, 2)`.
      
   </details>
 
@@ -446,42 +451,14 @@ So, the evaluated expression is `10`.
 </details>
   
   
-  
-  
+
+
+
+
+
+
  <details>
   <summary> <b>Question 7</b> </summary>
-  
-  Evaluate:
-  ```python
-(lambda a, b, c, d: (a(b), c(d)))(lambda a: a // 2, 8, lambda a: a % 3, 11)
-  ```
-  
-   <details>
-    <summary>Question 7 Answer</summary>
-
-  1. The outer lambda function has four arguments `a`, `b`, `c`, and `d`. It applies `a` to `b` and `c` to `d`, and returns the results as a tuple.
-  2. `a` is a lambda function: `(lambda x: x // 2)`. This function takes a single argument `x` and returns the integer division of `x` by 2.
-  3. `b` is `8`.
-  4. `c` is a lambda function: `(lambda y: y % 3)`. This function takes a single argument `y` and returns the remainder of `y` divided by 3.
-  5. `d` is `11`.
-  6. Applying `a` to `b` gives us `a(8)`, which is `8 // 2`.
-  7. The result is `4`.
-  8. Applying `c` to `d` gives us `c(11)`, which is `11 % 3`.
-  9. The result is `2`.
-  10. The tuple (4, 2) is returned.
-     
-  So, the evaluated expression is `(4, 2)`.
-     
-  </details>
-</details>
-
-
-
-
-
-
- <details>
-  <summary> <b>Question 8</b> </summary>
   
   Evaluate:
   ```python
@@ -489,7 +466,7 @@ So, the evaluated expression is `10`.
   ```
   
    <details>
-    <summary>Question 8 Answer</summary>
+    <summary>Question 7 Answer</summary>
 
 
   1. The outer lambda function has two arguments `f` and `lst`. It applies `f` to each element of `lst` using the `map` function and returns the result as a list.
@@ -506,7 +483,7 @@ So, the evaluated expression is `10`.
 
 
  <details>
-  <summary> <b>Question 9</b> </summary>
+  <summary> <b>Question 8</b> </summary>
   
   Evaluate:
   ```python
@@ -514,7 +491,7 @@ So, the evaluated expression is `10`.
   ```
   
    <details>
-    <summary>Question 9 Answer</summary>
+    <summary>Question 8 Answer</summary>
      
   The given expression can be evaluated step-by-step:
 
@@ -533,7 +510,7 @@ So, the evaluated expression is `10`.
 
 
  <details>
-  <summary> <b>Question 10</b> </summary>
+  <summary> <b>Question 9</b> </summary>
   
   Evaluate:
   ```python
@@ -541,7 +518,7 @@ So, the evaluated expression is `10`.
   ```
   
    <details>
-    <summary>Question 10 Answer</summary>
+    <summary>Question 9 Answer</summary>
 
   The given expression can be evaluated step-by-step:
 
@@ -558,6 +535,27 @@ So, the evaluated expression is `10`.
 </details>
 
 
+ <details>
+  <summary> <b>Question 10</b> </summary>
+  
+  Evaluate:
+  ```python
+ list(filter (lambda x : 10 % x, filter (lambda x: x % 2,[1,2,3,5,7,64])))
+  ```
+  
+   <details>
+    <summary>Question 10 Answer</summary>
+
+  1. You have a list of numbers: [1, 2, 3, 5, 7, 64].
+  2. The first filter function has a lambda function (lambda x: x % 2) which filters out only odd numbers from the list, as x % 2 will be non-zero (truthy) for odd numbers.
+  3. After applying the first filter, you get the list [1, 3, 5, 7].
+  4. The second filter function has a lambda function (lambda x: 10 % x), which checks if 10 is divisible by x. If 10 is not divisible by x, the result will be non-zero (truthy), and the element will be included in the filtered list.
+  5. After applying the second filter to the list [1, 3, 5, 7], you get the list [3, 7], as 10 is not divisible by 3 or 7.
+
+  So, the evaluated expression is [3, 7].
+     
+  </details>
+</details>
 
 
  <details>
@@ -613,6 +611,118 @@ So, the evaluated expression is `10`.
   7. The final result is `[2, 12, 30]`.
 
   So, the evaluated expression is `[2, 12, 30]`.
+     
+  </details>
+</details>
+
+
+
+
+
+
+ <details>
+  <summary> <b>Question 13</b> </summary>
+  
+  Evaluate:
+  ```python
+tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
+  ```
+  
+   <details>
+    <summary>Question 13 Answer</summary>
+
+      1. The outer function is tuple. It takes an iterable as an argument and returns a tuple containing the elements of the iterable.
+      2. The map function is applied to a lambda function and a tuple of tuples. The lambda function takes a single tuple argument and returns the sum of the first and second elements of the tuple. The tuple of tuples is ((1, 2), (3, 4)).
+      3. The lambda function is (lambda x: x[0] + x[1]). It takes one tuple argument x and returns the sum of the first element x[0] and the second element x[1].
+      4. Applying the map function to the lambda function and the tuple of tuples results in an iterable with the sum of the elements in each tuple: [1 + 2, 3 + 4].
+      5. The iterable created by the map function is [3, 7].
+      6. The tuple function takes the iterable [3, 7] and returns a tuple containing the elements of the iterable.
+     
+      So, the evaluated expression is (3, 7)
+     
+  </details>
+</details>
+
+
+
+
+
+ <details>
+  <summary> <b>Question 14</b> </summary>
+  
+  Evaluate:
+  ```python
+(lambda x,y,z:x(y)+x(z))((lambda x:x*2),4,5)
+  ```
+  
+   <details>
+    <summary>Question 14 Answer</summary>
+      1. The outer lambda function has three arguments x, y, and z. It applies x to y and x to z and returns the sum of the results.
+      2. x is a lambda function: (lambda x: x * 2). This function takes one argument x and returns the product of x and 2.
+      3. y is 4.
+      4. z is 5.
+      5. Applying x to y and z gives us: x(4) + x(5).
+      6. The lambda function (lambda x: x * 2) is applied to the arguments 4 and 5, resulting in 4 * 2 and 5 * 2, which are 8 and 10 respectively.
+      7. The final result is the sum of the two results: 8 + 10.
+     
+      So, the evaluated expression is 18.
+   ...
+     
+  </details>
+</details>
+
+
+
+
+
+
+ <details>
+  <summary> <b>Question 15</b> </summary>
+  
+  Evaluate:
+  ```python
+(lambda x: (lambda x : x)(lambda x: x+x)(x))(2)
+  ```
+  
+<details>
+  <summary>Question 12 Answer</summary>
+    1. The outer lambda function has one argument x. It applies an inner lambda function to another lambda function and the argument x.
+    2. The inner lambda function is (lambda x : x). This function takes one argument x and returns it as-is.
+    3. The lambda function inside the inner lambda function is (lambda x: x + x). This function takes a single argument x and returns the sum of x and x.
+    4. x is 2.
+    5. Applying the inner lambda function to the (lambda x: x + x) function and x=2 gives us: (lambda x: x)(4).
+    6. The inner lambda function, (lambda x: x), now takes the argument 4 and simply returns it.
+    7. The final result is 4.
+  
+    So, the evaluated expression is 4.
+
+</details>
+
+
+
+
+
+
+ <details>
+  <summary> <b>Question 16</b> </summary>
+  
+  Evaluate:
+  ```python
+def combinator(y):
+  return (lambda x: lambda y: x(y))(lambda x:y)
+combinator(lambda x:x*10)(11)(12)
+  ```
+  
+   <details>
+    <summary>Question 16 Answer</summary>
+     
+  The given code defines a function called combinator that takes a single argument y. The function returns a lambda function that takes another argument x, which itself returns a lambda function that takes a single argument y.
+
+  The innermost lambda function simply returns the value of y. The second lambda function takes y as an argument and returns the result of applying the first lambda function to y. The first lambda function takes x as an argument and returns the result of applying x to y.
+
+  When we call combinator(lambda x:x*10)(11), it returns a lambda function that takes a single argument y. We then call this function with 12 as the argument, which applies the first lambda function (lambda x:x*10) to 12. This returns 120, which is the result of 12 * 10.
+
+  So, the final output of the code is 120.
      
   </details>
 </details>
