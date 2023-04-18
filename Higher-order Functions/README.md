@@ -631,14 +631,14 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
    <details>
     <summary>Question 13 Answer</summary>
 
-      1. The outer function is tuple. It takes an iterable as an argument and returns a tuple containing the elements of the iterable.
-      2. The map function is applied to a lambda function and a tuple of tuples. The lambda function takes a single tuple argument and returns the sum of the first and second elements of the tuple. The tuple of tuples is ((1, 2), (3, 4)).
-      3. The lambda function is (lambda x: x[0] + x[1]). It takes one tuple argument x and returns the sum of the first element x[0] and the second element x[1].
-      4. Applying the map function to the lambda function and the tuple of tuples results in an iterable with the sum of the elements in each tuple: [1 + 2, 3 + 4].
-      5. The iterable created by the map function is [3, 7].
-      6. The tuple function takes the iterable [3, 7] and returns a tuple containing the elements of the iterable.
-     
-      So, the evaluated expression is (3, 7)
+    1. The outer function is tuple. It takes an iterable as an argument and returns a tuple containing the elements of the iterable.
+    2. The map function is applied to a lambda function and a tuple of tuples. The lambda function takes a single tuple argument and returns the sum of the first and second elements of the tuple. The tuple of tuples is ((1, 2), (3, 4)).
+    3. The lambda function is (lambda x: x[0] + x[1]). It takes one tuple argument x and returns the sum of the first element x[0] and the second element x[1].
+    4. Applying the map function to the lambda function and the tuple of tuples results in an iterable with the sum of the elements in each tuple: [1 + 2, 3 + 4].
+    5. The iterable created by the map function is [3, 7].
+    6. The tuple function takes the iterable [3, 7] and returns a tuple containing the elements of the iterable.
+
+    So, the evaluated expression is (3, 7)
      
   </details>
 </details>
@@ -657,6 +657,7 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
   
    <details>
     <summary>Question 14 Answer</summary>
+     
       1. The outer lambda function has three arguments x, y, and z. It applies x to y and x to z and returns the sum of the results.
       2. x is a lambda function: (lambda x: x * 2). This function takes one argument x and returns the product of x and 2.
       3. y is 4.
@@ -686,6 +687,7 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
   
 <details>
   <summary>Question 12 Answer</summary>
+  
     1. The outer lambda function has one argument x. It applies an inner lambda function to another lambda function and the argument x.
     2. The inner lambda function is (lambda x : x). This function takes one argument x and returns it as-is.
     3. The lambda function inside the inner lambda function is (lambda x: x + x). This function takes a single argument x and returns the sum of x and x.
