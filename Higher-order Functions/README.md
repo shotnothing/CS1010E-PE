@@ -219,6 +219,18 @@ print(result)  # Output: 8
 
 It is important to note that lambda functions are limited in their functionality compared to regular Python functions (defined using `def`). They are mainly used for simple operations where a full function definition would be unnecessarily verbose.
 
+```diff
+! Even though lambdas may seem named when you assign them to variables, they are still unnamed
+```
+Demonstration
+```python
+sum2 = lambda x: sum(x)
+sum3 = sum
+print(sum)  # <built-in function sum>
+print(sum2) # <function <lambda> at 0x7f49c2a8bb00>
+print(sum3) # <built-in function sum>
+```
+
 You can use lambdas with higher-order functions like `map()`, `filter()`, and `reduce()`:
 
 ```python
