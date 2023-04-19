@@ -82,6 +82,10 @@ def sum_until(n):
     def sum_all(m)
         return ... # Fill here, one line only
     return sum_all
+  
+  # Usage example:
+  sum_first_four = sum_until(4)
+  result = sum_first_four([1, 2, 3, 4, 5, 6, 7]) # 10
   ```
   
    <details>
