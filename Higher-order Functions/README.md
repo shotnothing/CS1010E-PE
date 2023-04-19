@@ -80,8 +80,8 @@ def sum_until(n):
                   of the first n elements in the list.
     """
     def sum_all(m)
-        return sum(m)
-    return ...
+        return ... # Fill here, one line only
+    return sum_all
   ```
   
    <details>
