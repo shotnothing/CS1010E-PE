@@ -684,7 +684,7 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
   ```
   
 <details>
-  <summary>Question 12 Answer</summary>
+  <summary>Question 15 Answer</summary>
   
   1. The outer lambda function has one argument x. It applies an inner lambda function to another lambda function and the argument x.
   2. The inner lambda function is (lambda x : x). This function takes one argument x and returns it as-is.
