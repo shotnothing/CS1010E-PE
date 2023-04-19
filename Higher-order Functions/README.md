@@ -650,7 +650,7 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
   
   Evaluate:
   ```python
-(lambda x,y,z:x(y)+x(z))(lambda y:lambda x:x*2)(3),4,5)
+(lambda x,y,z:x(y)+x(z))((lambda y:lambda x:x*2)(3),4,5)
   ```
   
    <details>
