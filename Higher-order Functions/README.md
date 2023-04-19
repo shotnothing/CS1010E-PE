@@ -690,8 +690,8 @@ tuple(map(lambda x:x[0]+x[1],((1,2),(3,4))))
   2. The inner lambda function is (lambda x : x). This function takes one argument x and returns it as-is.
   3. The lambda function inside the inner lambda function is (lambda x: x + x). This function takes a single argument x and returns the sum of x and x.
   4. x is 2.
-  5. Applying the inner lambda function to the (lambda x: x + x) function and x=2 gives us: (lambda x: x)(4).
-  6. The inner lambda function, (lambda x: x), now takes the argument 4 and simply returns it.
+  5. Applying the inner lambda function to the (lambda x: x + x) function and x=2 gives us: (lambda x: x + x)(2).
+  6. The inner lambda function, (lambda x: x + x), now takes the argument 2 and returns 4.
   7. The final result is 4.
 
   So, the evaluated expression is 4.
