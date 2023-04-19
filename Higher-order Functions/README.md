@@ -729,5 +729,15 @@ combinator(lambda x:x*10)(11)(12)
 
   So, the final output of the code is 120.
      
+   <details>
+        <summary>Congratulations!</summary>
+
+![7ipb4z](https://user-images.githubusercontent.com/16388604/233072404-1ed93ed0-7173-44ce-8ef3-b88ca8aeaec8.jpg)
+
+![EY9QMtuXQAIGlhz](https://user-images.githubusercontent.com/16388604/233072392-9dd4dcdb-a378-4b8c-a542-e19f63bca720.jpg)
+
+   </details>
+     
   </details>
+  
 </details>
