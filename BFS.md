@@ -1,3 +1,40 @@
+## Guide: General Structure of a BFS
+
+```python
+def bfs(initial_state): 
+    visited = set()
+    # put in the initial state into the queue
+    queue = [initial_state]
+    
+    while queue:
+        # get next state and delete it from the queue (thats what pop means)
+        current_state = queue.pop(0)
+        
+        # skip if visited this state before
+        if current_state in visited:
+            continue
+        else:
+            visited.add(current_state)
+         
+        # terminate early if its a winning state   
+        if check_win(current_state):
+            return current_state
+            
+        # else add the next possible states to the queue
+        queue.extend(successors(current_state))
+        
+def check_win(state):
+    # ... specify yourself based on game details
+    # returns True if win, else False
+    
+def successors(state):
+    # ... specify yourself based on game details
+    # returns a list of valid next states
+```
+
+
+## Sudoku Challenge:
+
 ```python
 ''' Solve Sudoku (BFS Practice, hard)
 by jing wen
